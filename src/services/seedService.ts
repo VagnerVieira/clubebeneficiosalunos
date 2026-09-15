@@ -7,7 +7,7 @@ export const STORAGE_KEYS = {
   BENEFITS: 'clube_beneficios_beneficios',
   ADMINS: 'clube_beneficios_admins',
   SESSION: 'clube_beneficios_session',
-  INITIALIZED: 'clube_beneficios_initialized_v2',
+  INITIALIZED: 'clube_beneficios_initialized_v3',
 };
 
 const today = getTodayString();
@@ -15,8 +15,8 @@ const today = getTodayString();
 export const INITIAL_ADMINS: AdminUser[] = [
   {
     id: 'admin-1',
-    nome: 'Coordenação Geral Institucional',
-    email: 'admin@instituicao.edu.br',
+    nome: 'Administração Geral do Clube',
+    email: 'admin@clube.com.br',
     senha: 'admin123',
     perfil: 'admin',
     status: 'Ativo',
@@ -39,8 +39,8 @@ export const INITIAL_STUDENTS: Student[] = [
     email: 'joao.silva@membro.org',
     telefone: '(11) 98765-4321',
     senha: '123456',
-    instituicao: 'Centro Universitário Metropolitano',
-    curso: 'Engenharia de Software',
+    instituicao: 'Clube de Benefícios Metropolitano',
+    curso: 'Plano Premium',
     dataInicio: addDaysToStringDate(today, -180),
     dataValidade: addDaysToStringDate(today, 120), // Futura (+120 dias)
     status: 'Ativo',
@@ -55,8 +55,8 @@ export const INITIAL_STUDENTS: Student[] = [
     email: 'maria.oliveira@membro.org',
     telefone: '(11) 97654-3210',
     senha: '123456',
-    instituicao: 'Centro Universitário Metropolitano',
-    curso: 'Administração de Empresas',
+    instituicao: 'Clube de Benefícios Metropolitano',
+    curso: 'Plano Gold',
     dataInicio: addDaysToStringDate(today, -360),
     dataValidade: addDaysToStringDate(today, 5), // Próxima (+5 dias)
     status: 'Ativo',
@@ -71,8 +71,8 @@ export const INITIAL_STUDENTS: Student[] = [
     email: 'carlos.souza@membro.org',
     telefone: '(11) 96543-2109',
     senha: '123456',
-    instituicao: 'Centro Universitário Metropolitano',
-    curso: 'Direito',
+    instituicao: 'Clube de Benefícios Metropolitano',
+    curso: 'Plano Standard',
     dataInicio: addDaysToStringDate(today, -500),
     dataValidade: addDaysToStringDate(today, -15), // Passada (-15 dias)
     status: 'Vencido',
@@ -87,8 +87,8 @@ export const INITIAL_STUDENTS: Student[] = [
     email: 'beatriz.lima@membro.org',
     telefone: '(11) 95432-1098',
     senha: '123456',
-    instituicao: 'Centro Universitário Metropolitano',
-    curso: 'Arquitetura e Urbanismo',
+    instituicao: 'Clube de Benefícios Metropolitano',
+    curso: 'Plano Master',
     dataInicio: addDaysToStringDate(today, -100),
     dataValidade: addDaysToStringDate(today, 60),
     status: 'Inadimplente',
@@ -102,7 +102,7 @@ export const INITIAL_BENEFITS: Benefit[] = [
   {
     id: 'ben-1',
     categoria: 'Alimentação',
-    local: 'Restaurante Universitário & Cantinas',
+    local: 'Restaurante & Gastronomia Metropolitana',
     titulo: '15% de Desconto no Almoço e Refeições',
     descricao: 'Desconto aplicado em todos os pratos do buffet por quilo ou refeição executiva completa.',
     percentualDesconto: 15,
@@ -120,7 +120,7 @@ export const INITIAL_BENEFITS: Benefit[] = [
   {
     id: 'ben-2',
     categoria: 'Alimentação',
-    local: 'Cafeteria do Campus',
+    local: 'Cafeteria Central',
     titulo: 'Café Expresso Cortesia à Tarde',
     descricao: 'Na compra de qualquer salgado ou fatia de bolo, ganhe 1 café expresso tradicional cortesia.',
     valorOuCondicao: 'Café expresso grátis com salgado/doce',
@@ -143,7 +143,7 @@ export const INITIAL_BENEFITS: Benefit[] = [
     percentualDesconto: 25,
     valorOuCondicao: '25% de desconto nas mensalidades',
     regrasDeUso:
-      'Desconto garantido nas mensalidades enquanto o titular mantiver o status regular e ativo. Isenção total da taxa de matrícula.',
+      'Desconto garantido nas mensalidades enquanto o titular mantiver o status regular e ativo. Isenção total da taxa de adesão.',
     comoUtilizar: 'Apresente a Carteirinha Digital na recepção no ato da adesão ou renovação.',
     destaque: true,
     dataInicio: addDaysToStringDate(today, -50),
@@ -174,7 +174,7 @@ export const INITIAL_BENEFITS: Benefit[] = [
   {
     id: 'ben-5',
     categoria: 'Saúde & Farmácia',
-    local: 'Rede Farmacêutica Universitária',
+    local: 'Rede Farmacêutica & Drogaria',
     titulo: 'Até 30% em Medicamentos Genéricos e Higiene',
     descricao: 'Descontos expressivos em medicamentos de referência, genéricos e produtos de cuidado diário.',
     percentualDesconto: 30,
@@ -192,14 +192,14 @@ export const INITIAL_BENEFITS: Benefit[] = [
   {
     id: 'ben-6',
     categoria: 'Educação',
-    local: 'Livraria e Centro de Cópias',
+    local: 'Livraria e Papelaria Central',
     titulo: '15% de Desconto em Livros e 20% em Impressões',
-    descricao: 'Desconto em livros universitários, cadernos, blocos e serviços gráficos para trabalhos acadêmicos.',
+    descricao: 'Desconto em livros, papelaria, cadernos, blocos e serviços gráficos de impressão.',
     percentualDesconto: 15,
     valorOuCondicao: '15% Livros | 20% Cópias e Encadernações',
     regrasDeUso:
       'Apresente a Carteirinha Digital no momento do pedido. Desconto não cumulativo com outras promoções.',
-    comoUtilizar: 'Apresente a Carteirinha Digital no caixa da livraria ou balcão de cópias.',
+    comoUtilizar: 'Apresente a Carteirinha Digital no caixa da livraria ou balcão de atendimento.',
     destaque: false,
     dataInicio: addDaysToStringDate(today, -35),
     dataFim: addDaysToStringDate(today, 180),
@@ -215,8 +215,8 @@ export const INITIAL_BENEFITS: Benefit[] = [
     descricao: 'Condição facilitada para membros com parcelamento em até 10x sem juros.',
     valorOuCondicao: 'R$ 250 de desconto + simulador grátis',
     regrasDeUso:
-      'Válido para novas matrículas nos pacotes de CNH Cat A+B. Apresentar a Carteirinha Digital na recepção no ato da matrícula.',
-    comoUtilizar: 'Apresente a Carteirinha Digital na recepção no ato da matrícula.',
+      'Válido para novas adesões nos pacotes de CNH Cat A+B. Apresentar a Carteirinha Digital na recepção no ato da adesão.',
+    comoUtilizar: 'Apresente a Carteirinha Digital na recepção no ato da adesão.',
     destaque: false,
     dataInicio: addDaysToStringDate(today, -30),
     dataFim: addDaysToStringDate(today, 180),
@@ -237,14 +237,14 @@ export const seedService = {
 
     // Garantir que os administradores padrão existam
     const admins = storageService.getItem<AdminUser[]>(STORAGE_KEYS.ADMINS, []);
-    const hasInstituicaoAdmin = admins.some(
-      (a) => a.email.toLowerCase() === 'admin@instituicao.edu.br'
+    const hasAdmin = admins.some(
+      (a) => a.email.toLowerCase() === 'admin@clube.com.br'
     );
-    if (!hasInstituicaoAdmin) {
+    if (!hasAdmin) {
       admins.push({
         id: 'admin-1',
-        nome: 'Coordenação Geral Institucional',
-        email: 'admin@instituicao.edu.br',
+        nome: 'Administração Geral do Clube',
+        email: 'admin@clube.com.br',
         senha: 'admin123',
         perfil: 'admin',
         status: 'Ativo',
@@ -263,8 +263,8 @@ export const seedService = {
         email: 'joao.silva@membro.org',
         telefone: '(11) 98765-4321',
         senha: '123456',
-        instituicao: 'Centro Universitário Metropolitano',
-        curso: 'Engenharia de Software',
+        instituicao: 'Clube de Benefícios Metropolitano',
+        curso: 'Plano Premium',
         dataInicio: addDaysToStringDate(freshToday, -180),
         dataValidade: addDaysToStringDate(freshToday, 120), // Futura (+120 dias)
         status: 'Ativo',
@@ -279,8 +279,8 @@ export const seedService = {
         email: 'maria.oliveira@membro.org',
         telefone: '(11) 97654-3210',
         senha: '123456',
-        instituicao: 'Centro Universitário Metropolitano',
-        curso: 'Administração de Empresas',
+        instituicao: 'Clube de Benefícios Metropolitano',
+        curso: 'Plano Gold',
         dataInicio: addDaysToStringDate(freshToday, -360),
         dataValidade: addDaysToStringDate(freshToday, 5), // Próxima (+5 dias)
         status: 'Ativo',
@@ -295,8 +295,8 @@ export const seedService = {
         email: 'carlos.souza@membro.org',
         telefone: '(11) 96543-2109',
         senha: '123456',
-        instituicao: 'Centro Universitário Metropolitano',
-        curso: 'Direito',
+        instituicao: 'Clube de Benefícios Metropolitano',
+        curso: 'Plano Standard',
         dataInicio: addDaysToStringDate(freshToday, -500),
         dataValidade: addDaysToStringDate(freshToday, -15), // Passada (-15 dias)
         status: 'Vencido',
@@ -311,8 +311,8 @@ export const seedService = {
         email: 'beatriz.lima@membro.org',
         telefone: '(11) 95432-1098',
         senha: '123456',
-        instituicao: 'Centro Universitário Metropolitano',
-        curso: 'Arquitetura e Urbanismo',
+        instituicao: 'Clube de Benefícios Metropolitano',
+        curso: 'Plano Master',
         dataInicio: addDaysToStringDate(freshToday, -100),
         dataValidade: addDaysToStringDate(freshToday, 60),
         status: 'Inadimplente',

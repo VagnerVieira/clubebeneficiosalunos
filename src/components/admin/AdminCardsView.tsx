@@ -49,7 +49,7 @@ export const AdminCardsView: React.FC = () => {
     return list.find((s) => s.status === 'Ativo') || list[0] || null;
   });
 
-  // Modal de Simulação de Validação do Lojista/Parceiro
+  // Modal de Simulação de Validação do Estabelecimento
   const [validationMatricula, setValidationMatricula] = useState('');
   const [validationResult, setValidationResult] = useState<{
     tested: boolean;
@@ -297,7 +297,7 @@ export const AdminCardsView: React.FC = () => {
                             </span>
                           </div>
                           <div className="text-xs text-white/80 mt-0.5">
-                            Matrícula: <strong className="font-mono">{validationResult.student.matricula}</strong> • Curso: {validationResult.student.curso}
+                            Matrícula: <strong className="font-mono">{validationResult.student.matricula}</strong> • Plano: {validationResult.student.curso}
                           </div>
                         </div>
                       </div>
@@ -347,7 +347,7 @@ export const AdminCardsView: React.FC = () => {
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Filtrar por nome, matrícula ou curso..."
+                placeholder="Filtrar por nome, matrícula ou plano..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
@@ -457,7 +457,7 @@ export const AdminCardsView: React.FC = () => {
                 {/* Detalhes de Segurança e Autenticação */}
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
                   <div className="flex items-center justify-between text-slate-600">
-                    <span>Instituição de Ensino:</span>
+                    <span>Organização / Unidade:</span>
                     <strong className="text-slate-900 text-right">{selectedStudent.instituicao}</strong>
                   </div>
                   <div className="flex items-center justify-between text-slate-600">

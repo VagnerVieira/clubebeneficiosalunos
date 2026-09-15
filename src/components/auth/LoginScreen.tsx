@@ -142,7 +142,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
   const fillAdminCredentials = () => {
     setErrorMessage(null);
     setActiveTab('admin');
-    setEmailAdmin('admin@instituicao.edu.br');
+    setEmailAdmin('admin@clube.com.br');
     setSenhaAdmin('admin123');
   };
 
@@ -310,7 +310,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
                     required
                     value={emailAdmin}
                     onChange={(e) => setEmailAdmin(e.target.value)}
-                    placeholder="admin@instituicao.edu.br"
+                    placeholder="admin@clube.com.br"
                     className="block w-full pl-10 pr-3.5 py-2.5 text-base sm:text-sm rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-slate-900 placeholder:text-slate-400"
                   />
                 </div>
@@ -346,7 +346,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
               </button>
 
               <p className="text-center text-[11px] text-slate-400 pt-1">
-                Acesso de teste: <span className="font-semibold text-slate-600">admin@instituicao.edu.br</span> • senha: <span className="font-semibold text-slate-600">admin123</span>
+                Acesso de teste: <span className="font-semibold text-slate-600">admin@clube.com.br</span> • senha: <span className="font-semibold text-slate-600">admin123</span>
               </p>
             </form>
           )}
@@ -453,8 +453,8 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
                     className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/80 hover:border-slate-400 hover:bg-slate-100 text-left transition-colors cursor-pointer mt-1"
                   >
                     <div>
-                      <span className="font-semibold text-slate-900 block">Administrador Institucional</span>
-                      <span className="text-slate-500 text-[11px]">admin@instituicao.edu.br • admin123</span>
+                      <span className="font-semibold text-slate-900 block">Administração do Clube</span>
+                      <span className="text-slate-500 text-[11px]">admin@clube.com.br • admin123</span>
                     </div>
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-200 text-slate-800">
                       Admin

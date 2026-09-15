@@ -3,7 +3,6 @@ import {
   AlertOctagon,
   Calendar,
   CreditCard,
-  GraduationCap,
   HelpCircle,
   LogOut,
   Mail,
@@ -33,24 +32,24 @@ export const BlockedAccess: React.FC<BlockedAccessProps> = ({ student, onLogout 
     statusTitle = 'Período de Acesso Vencido';
     statusBadgeColor = 'bg-rose-100 text-rose-800 border-rose-200';
     detailedExplanation =
-      'A data de validade do seu benefício estudantil expirou em ' +
+      'A data de validade do seu benefício expirou em ' +
       formatDateBR(student.dataValidade) +
-      '. É necessário renovar o vínculo acadêmico para reativar o Clube de Benefícios.';
+      '. É necessário renovar o vínculo para reativar o Clube de Benefícios.';
   } else if (student.status === 'Inadimplente') {
-    statusTitle = 'Situação Financeira ou Cadastral Pendente';
+    statusTitle = 'Situação Cadastral ou Financeira Pendente';
     statusBadgeColor = 'bg-purple-100 text-purple-800 border-purple-200';
     detailedExplanation =
-      'Identificamos uma pendência cadastral ou financeira ativa em seu prontuário acadêmico. Regularize sua matrícula junto ao setor financeiro para liberar as vantagens.';
+      'Identificamos uma pendência cadastral ou financeira ativa em seu registro. Regularize sua situação junto à administração para liberar as vantagens.';
   } else if (student.status === 'Inativo') {
-    statusTitle = 'Cadastro de Estudante Inativo';
+    statusTitle = 'Cadastro de Membro Inativo';
     statusBadgeColor = 'bg-slate-200 text-slate-800 border-slate-300';
     detailedExplanation =
-      'Sua matrícula consta como inativa ou trancada na instituição. Em caso de retorno aos estudos, procure a secretaria acadêmica.';
+      'Seu registro consta como inativo no clube. Em caso de dúvidas, procure a central de atendimento.';
   } else if (student.status === 'Bloqueado') {
-    statusTitle = 'Acesso Bloqueado pela Coordenação';
+    statusTitle = 'Acesso Bloqueado pela Administração';
     statusBadgeColor = 'bg-red-100 text-red-900 border-red-200';
     detailedExplanation =
-      'Seu acesso foi preventivamente bloqueado. Para verificar o motivo e solicitar o desbloqueio, entre em contato com a coordenação institucional.';
+      'Seu acesso foi preventivamente bloqueado. Para verificar o motivo e solicitar o desbloqueio, entre em contato com a administração do clube.';
   }
 
   return (
@@ -73,26 +72,26 @@ export const BlockedAccess: React.FC<BlockedAccessProps> = ({ student, onLogout 
           {statusTitle}
         </h1>
 
-        {/* Mensagem oficial exigida no requisito */}
+        {/* Mensagem oficial de indisponibilidade */}
         <div className="mt-4 p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-left text-xs sm:text-sm text-amber-950 leading-relaxed space-y-2">
           <p className="font-semibold text-amber-900">
-            “Seu acesso aos benefícios está temporariamente indisponível. Para regularizar sua situação, entre em contato com a instituição de ensino.”
+            “Seu acesso aos benefícios está temporariamente indisponível. Para regularizar sua situação, entre em contato com a administração do clube.”
           </p>
           <p className="text-xs text-amber-800/90">{detailedExplanation}</p>
         </div>
 
-        {/* Resumo do Estudante */}
+        {/* Resumo do Membro */}
         <div className="mt-6 bg-slate-50 rounded-2xl p-4 border border-slate-200 text-left text-xs space-y-2">
           <div className="flex justify-between items-center py-1 border-b border-slate-200/60">
             <span className="text-slate-500 font-medium">Titular:</span>
             <span className="font-bold text-slate-800">{student.nome}</span>
           </div>
           <div className="flex justify-between items-center py-1 border-b border-slate-200/60">
-            <span className="text-slate-500 font-medium">Matrícula:</span>
+            <span className="text-slate-500 font-medium">Matrícula / ID:</span>
             <span className="font-mono font-bold text-slate-800">{student.matricula}</span>
           </div>
           <div className="flex justify-between items-center py-1 border-b border-slate-200/60">
-            <span className="text-slate-500 font-medium">Instituição:</span>
+            <span className="text-slate-500 font-medium">Organização:</span>
             <span className="font-semibold text-slate-800">{student.instituicao}</span>
           </div>
           <div className="flex justify-between items-center py-1">
@@ -103,7 +102,7 @@ export const BlockedAccess: React.FC<BlockedAccessProps> = ({ student, onLogout 
           </div>
         </div>
 
-        {/* Contatos da Secretaria Institucional */}
+        {/* Contatos da Central de Atendimento */}
         <div className="mt-6 text-left bg-blue-50/60 rounded-2xl p-4 border border-blue-100 text-xs text-slate-600 space-y-1.5">
           <div className="font-bold text-blue-900 flex items-center gap-1.5">
             <HelpCircle className="w-4 h-4 text-blue-600" />
@@ -111,11 +110,11 @@ export const BlockedAccess: React.FC<BlockedAccessProps> = ({ student, onLogout 
           </div>
           <div className="flex items-center gap-2 text-slate-700">
             <Mail className="w-3.5 h-3.5 text-blue-600" />
-            <span>secretaria@universidade.edu.br</span>
+            <span>atendimento@clubedebeneficios.com.br</span>
           </div>
           <div className="flex items-center gap-2 text-slate-700">
             <Phone className="w-3.5 h-3.5 text-blue-600" />
-            <span>(11) 3000-4000 • Atendimento de Segunda a Sexta das 8h às 21h</span>
+            <span>(11) 3000-4000 • Atendimento de Segunda a Sexta das 8h às 20h</span>
           </div>
         </div>
 

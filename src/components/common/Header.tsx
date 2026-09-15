@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Award,
   ChevronLeft,
-  GraduationCap,
   LogOut,
   ShieldCheck,
   FileText,
@@ -69,14 +68,14 @@ export const Header: React.FC<HeaderProps> = ({
 
             <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-500 text-white flex items-center justify-center shadow-xs shrink-0">
-                <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
+                <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="flex flex-col min-w-0">
                 <span className="text-sm sm:text-base font-bold tracking-tight text-slate-900 leading-tight truncate">
                   {title || 'Clube de Benefícios'}
                 </span>
                 <span className="hidden sm:inline-flex items-center gap-1 text-xs font-medium text-slate-500 whitespace-nowrap">
-                  <Award className="w-3 h-3 text-emerald-600 shrink-0" /> Vantagens Acadêmicas
+                  <Award className="w-3 h-3 text-emerald-600 shrink-0" /> Vantagens & Descontos Exclusivos
                 </span>
               </div>
             </div>

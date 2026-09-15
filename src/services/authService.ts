@@ -53,8 +53,8 @@ export const authService = {
       admins = [
         {
           id: 'admin-1',
-          nome: 'Coordenação Geral Institucional',
-          email: 'admin@instituicao.edu.br',
+          nome: 'Administração Geral do Clube',
+          email: 'admin@clube.com.br',
           senha: 'admin123',
           perfil: 'admin',
           status: 'Ativo',
@@ -77,12 +77,17 @@ export const authService = {
         (emailClean === 'admin' && a.email.includes('admin'))
     );
 
-    // Suporte direto para as contas institucionais de demonstração
-    if (!admin && (emailClean === 'admin@instituicao.edu.br' || emailClean === 'admin@demo.com' || emailClean === 'admin')) {
+    // Suporte direto para as contas administrativas de demonstração
+    if (
+      !admin &&
+      (emailClean === 'admin@clube.com.br' ||
+        emailClean === 'admin@demo.com' ||
+        emailClean === 'admin')
+    ) {
       admin = {
         id: 'admin-1',
-        nome: 'Coordenação Geral Institucional',
-        email: emailClean.includes('@') ? emailClean : 'admin@instituicao.edu.br',
+        nome: 'Administração Geral do Clube',
+        email: emailClean.includes('@') ? emailClean : 'admin@clube.com.br',
         senha: 'admin123',
         perfil: 'admin',
         status: 'Ativo',

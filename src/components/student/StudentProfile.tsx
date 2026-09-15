@@ -1,8 +1,8 @@
 import React from 'react';
 import {
+  Award,
   Calendar,
   CreditCard,
-  GraduationCap,
   Info,
   LogOut,
   Mail,
@@ -29,7 +29,7 @@ export const StudentProfile: React.FC<StudentProfileProps> = ({ student, onLogou
           Meu Perfil
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Confira seus dados cadastrais vinculados à instituição de ensino.
+          Confira seus dados cadastrais vinculados ao Clube de Benefícios.
         </p>
       </div>
 
@@ -110,7 +110,7 @@ export const StudentProfile: React.FC<StudentProfileProps> = ({ student, onLogou
           </div>
           <div className="flex-1 min-w-0">
             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-              E-mail Institucional
+              E-mail Cadastrado
             </span>
             <span className="text-sm font-semibold text-slate-800 truncate block">
               {student.email || 'Não informado'}
@@ -134,11 +134,11 @@ export const StudentProfile: React.FC<StudentProfileProps> = ({ student, onLogou
 
         <div className="p-4 sm:p-5 flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
-            <GraduationCap className="w-4 h-4" />
+            <Award className="w-4 h-4" />
           </div>
           <div className="flex-1 min-w-0">
             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-              Instituição & Curso
+              Organização & Categoria / Plano
             </span>
             <span className="text-sm font-semibold text-slate-800 block break-words">
               {student.curso} — {student.instituicao}
@@ -179,7 +179,7 @@ export const StudentProfile: React.FC<StudentProfileProps> = ({ student, onLogou
       <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200/70 text-xs text-blue-900 flex items-start gap-2.5">
         <Info className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
         <span>
-          Nesta versão do aplicativo, as informações cadastrais e o status de matrícula são atualizados diretamente pela secretaria e administração da instituição de ensino.
+          Nesta versão do aplicativo, as informações cadastrais e o status de acesso são atualizados diretamente pela administração do Clube de Benefícios.
         </span>
       </div>
 

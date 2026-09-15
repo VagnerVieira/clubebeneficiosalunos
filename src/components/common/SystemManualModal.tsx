@@ -402,7 +402,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                         <tr>
                           <td className="p-3 font-semibold text-blue-700">Membros & Carteirinhas</td>
                           <td className="p-3 font-mono text-slate-600 text-[11px]">clube_beneficios_membros</td>
-                          <td className="p-3 text-slate-600">Matrícula (única), Nome, Curso, Data Início, Data Validade, Status, Senha.</td>
+                          <td className="p-3 text-slate-600">Matrícula (única), Nome, Plano, Data Início, Data Validade, Status, Senha.</td>
                         </tr>
                         <tr>
                           <td className="p-3 font-semibold text-blue-700">Benefícios</td>
@@ -411,8 +411,8 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                         </tr>
                         <tr>
                           <td className="p-3 font-semibold text-blue-700">Admins</td>
-                          <td className="p-3 font-mono text-slate-600 text-[11px]">clube_admins_v1</td>
-                          <td className="p-3 text-slate-600">admin@instituicao.edu.br, Senha administrativa, Perfil 'admin'.</td>
+                          <td className="p-3 font-mono text-slate-600 text-[11px]">clube_beneficios_admins</td>
+                          <td className="p-3 text-slate-600">admin@clube.com.br, Senha administrativa, Perfil 'admin'.</td>
                         </tr>
                       </tbody>
                     </table>
@@ -455,7 +455,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                     </span>
                     <div className="text-xs text-amber-950 leading-relaxed">
                       <span className="font-bold block mb-0.5">Vencimento Próximo (1 a 30 dias restantes):</span>
-                      Acesso liberado, porém com banner amigável de advertência no topo solicitando a renovação junto à instituição.
+                      Acesso liberado, porém com banner amigável de advertência no topo solicitando a renovação junto ao clube.
                     </div>
                   </div>
 
@@ -465,7 +465,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                     </span>
                     <div className="text-xs text-rose-950 leading-relaxed">
                       <span className="font-bold block mb-0.5">Vigência Expirada (&lt; data atual):</span>
-                      Acesso bloqueado automaticamente. Exibe a tela de orientação institucional e os contatos da secretaria acadêmica.
+                      Acesso bloqueado automaticamente. Exibe a tela de orientação e os contatos da central de atendimento.
                     </div>
                   </div>
 
@@ -563,7 +563,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                       </span>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      Carteirinha digital estilizada com foto, matrícula, curso, vigência e simulação de QR Code.
+                      Carteirinha digital estilizada com foto, matrícula, plano, vigência e simulação de QR Code.
                       Conta com botão para modo Tela Cheia, facilitando a apresentação no caixa do estabelecimento conveniado.
                     </p>
                   </div>
@@ -578,7 +578,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                     </div>
                     <p className="text-xs text-rose-800 leading-relaxed">
                       Exibida automaticamente quando a vigência do membro vence ou status for restrito. Apresenta texto
-                      institucional cordial, resumo da matrícula e canais diretos de atendimento da secretaria para regularização.
+                      cordial, resumo do cadastro e canais diretos de atendimento do clube para regularização.
                     </p>
                   </div>
                 </div>
@@ -590,14 +590,14 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
               <div className="space-y-6 animate-in fade-in duration-150">
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 mb-2">
-                    <Layers className="w-3.5 h-3.5" /> Gestão Institucional
+                    <Layers className="w-3.5 h-3.5" /> Gestão Geral
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
                     Especificação de Todas as Telas do Administrador
                   </h3>
                   <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                     O painel administrativo reúne ferramentas completas para cadastro, edição, exclusão e monitoramento
-                    do ecossistema de benefícios da instituição de ensino.
+                    do ecossistema do clube de benefícios.
                   </p>
                 </div>
 
@@ -628,7 +628,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                       </span>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      Visualização e emissão da Carteirinha Digital com foto, curso, matrícula, validação de status em tempo real, QR Code dinâmico de autenticidade e regras de vigência.
+                      Visualização e emissão da Carteirinha Digital com foto, plano, matrícula, validação de status em tempo real, QR Code dinâmico de autenticidade e regras de vigência.
                     </p>
                   </div>
                 </div>
@@ -678,7 +678,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                     </div>
                     <p className="text-xs text-slate-600">
                       Faça login como <strong>Carlos Souza (Vencido)</strong>. O sistema bloqueia a navegação de forma automática,
-                      apresentando a tela de Acesso Restrito com canais de atendimento da secretaria.
+                      apresentando a tela de Acesso Restrito com canais de atendimento do clube.
                     </p>
                   </div>
 
@@ -687,7 +687,7 @@ export const SystemManualModal: React.FC<SystemManualModalProps> = ({ isOpen, on
                       4. Acesso Administrativo & Renovação de Vigência
                     </div>
                     <p className="text-xs text-slate-600">
-                      Faça login na aba Administração com <code className="bg-slate-100 px-1 py-0.5 rounded font-mono">admin@instituicao.edu.br</code> / <code className="bg-slate-100 px-1 py-0.5 rounded font-mono">admin123</code>.
+                      Faça login na aba Administração com <code className="bg-slate-100 px-1 py-0.5 rounded font-mono">admin@clube.com.br</code> / <code className="bg-slate-100 px-1 py-0.5 rounded font-mono">admin123</code>.
                       No painel de Membros, edite o cadastro de Carlos Souza, clique no botão <strong>+180 dias</strong> e salve.
                       Ao logar novamente como Carlos, seu acesso estará liberado!
                     </p>

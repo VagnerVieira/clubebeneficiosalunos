@@ -84,7 +84,7 @@ export const StudentHome: React.FC<StudentHomeProps> = ({ student, onNavigate })
             Olá, {firstName}! 👋
           </h1>
           <p className="text-xs sm:text-sm text-blue-100 mt-1 max-w-md">
-            Aproveite seus benefícios acadêmicos exclusivos apresentando sua Carteirinha Digital.
+            Aproveite seus benefícios e vantagens exclusivas apresentando sua Carteirinha Digital.
           </p>
 
           {/* Box de Validade do Acesso */}

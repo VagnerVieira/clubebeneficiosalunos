@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   Clock,
   CreditCard,
-  GraduationCap,
   Maximize2,
   QrCode,
   ShieldCheck,
@@ -44,7 +43,7 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
       <div className="relative z-10 flex items-start justify-between gap-2 sm:gap-3 pb-3.5 sm:pb-4 border-b border-white/15">
         <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-white border border-white/20 shadow-xs shrink-0">
-            <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
+            <CreditCard className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="min-w-0">
             <div className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-blue-200">
@@ -76,7 +75,7 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
             )}
           </span>
           <span className="text-[8px] sm:text-[9px] text-blue-200 mt-1 font-mono tracking-wider">
-            ANO LETIVO 2026
+            VIGÊNCIA 2026
           </span>
         </div>
       </div>
@@ -193,7 +192,7 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
           <ul className="space-y-1.5 list-disc list-inside text-slate-600">
             <li>Exiba a tela deste cartão no momento do fechamento da conta ou comanda.</li>
             <li>O estabelecimento verificará a <strong>foto, nome, matrícula</strong> e a <strong>data de validade</strong>.</li>
-            <li>Em caso de dúvida, o lojista poderá solicitar documento complementar com foto (RG/CNH).</li>
+            <li>Em caso de dúvida, o estabelecimento poderá solicitar documento complementar com foto (RG/CNH).</li>
           </ul>
         </div>
       </div>

@@ -467,7 +467,7 @@ export const AdminBenefits: React.FC<AdminBenefitsProps> = ({
                   required
                   value={formTitulo}
                   onChange={(e) => setFormTitulo(e.target.value)}
-                  placeholder="Ex: 20% de Desconto em Livros e Material Acadêmico"
+                  placeholder="Ex: 20% de Desconto em Produtos e Serviços"
                   className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-blue-500 outline-none"
                 />
               </div>

@@ -104,9 +104,9 @@ export function evaluateStudentValidity(student: Student): ValidityEvaluation {
     } else if (student.status === 'Inadimplente') {
       detailedMessage = 'Identificamos uma pendência cadastral ou financeira em sua matrícula.';
     } else if (student.status === 'Inativo') {
-      detailedMessage = 'Seu cadastro de estudante encontra-se inativo no sistema.';
+      detailedMessage = 'Seu cadastro de membro encontra-se inativo no sistema.';
     } else if (student.status === 'Bloqueado') {
-      detailedMessage = 'Seu acesso foi preventivamente bloqueado pela coordenação.';
+      detailedMessage = 'Seu acesso foi preventivamente bloqueado pela administração do clube.';
     }
   }
 
