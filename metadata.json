@@ -1,0 +1,6 @@
+{
+  "name": "Clube de Benefícios",
+  "description": "Aplicativo focado em Cadastro de Benefícios e Carteirinha Digital com QR Code e validação de autenticidade.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

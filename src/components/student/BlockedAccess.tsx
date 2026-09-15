@@ -1,0 +1,174 @@
+import React, { useState } from 'react';
+import {
+  AlertOctagon,
+  Calendar,
+  CreditCard,
+  GraduationCap,
+  HelpCircle,
+  LogOut,
+  Mail,
+  Phone,
+  ShieldAlert,
+  User,
+} from 'lucide-react';
+import { Student } from '../../types';
+import { evaluateStudentValidity, formatDateBR } from '../../utils/dateUtils';
+import { StudentCard } from './StudentCard';
+
+interface BlockedAccessProps {
+  student: Student;
+  onLogout: () => void;
+}
+
+export const BlockedAccess: React.FC<BlockedAccessProps> = ({ student, onLogout }) => {
+  const [showCardModal, setShowCardModal] = useState(false);
+  const validity = evaluateStudentValidity(student);
+
+  // Determinar mensagem e título específico por status
+  let statusTitle = 'Acesso Temporariamente Indisponível';
+  let statusBadgeColor = 'bg-amber-100 text-amber-900 border-amber-200';
+  let detailedExplanation = validity.detailedMessage;
+
+  if (student.status === 'Vencido' || validity.isExpired) {
+    statusTitle = 'Período de Acesso Vencido';
+    statusBadgeColor = 'bg-rose-100 text-rose-800 border-rose-200';
+    detailedExplanation =
+      'A data de validade do seu benefício estudantil expirou em ' +
+      formatDateBR(student.dataValidade) +
+      '. É necessário renovar o vínculo acadêmico para reativar o Clube de Benefícios.';
+  } else if (student.status === 'Inadimplente') {
+    statusTitle = 'Situação Financeira ou Cadastral Pendente';
+    statusBadgeColor = 'bg-purple-100 text-purple-800 border-purple-200';
+    detailedExplanation =
+      'Identificamos uma pendência cadastral ou financeira ativa em seu prontuário acadêmico. Regularize sua matrícula junto ao setor financeiro para liberar as vantagens.';
+  } else if (student.status === 'Inativo') {
+    statusTitle = 'Cadastro de Estudante Inativo';
+    statusBadgeColor = 'bg-slate-200 text-slate-800 border-slate-300';
+    detailedExplanation =
+      'Sua matrícula consta como inativa ou trancada na instituição. Em caso de retorno aos estudos, procure a secretaria acadêmica.';
+  } else if (student.status === 'Bloqueado') {
+    statusTitle = 'Acesso Bloqueado pela Coordenação';
+    statusBadgeColor = 'bg-red-100 text-red-900 border-red-200';
+    detailedExplanation =
+      'Seu acesso foi preventivamente bloqueado. Para verificar o motivo e solicitar o desbloqueio, entre em contato com a coordenação institucional.';
+  }
+
+  return (
+    <div className="max-w-lg mx-auto py-8 px-4 sm:px-0">
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl shadow-slate-200/50 text-center">
+        {/* Ícone de Alerta */}
+        <div className="w-16 h-16 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4 border border-rose-100 shadow-xs">
+          <ShieldAlert className="w-8 h-8" />
+        </div>
+
+        {/* Status Badge */}
+        <span
+          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border mb-3 ${statusBadgeColor}`}
+        >
+          <AlertOctagon className="w-3.5 h-3.5" />
+          Status: {student.status.toUpperCase()}
+        </span>
+
+        <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          {statusTitle}
+        </h1>
+
+        {/* Mensagem oficial exigida no requisito */}
+        <div className="mt-4 p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-left text-xs sm:text-sm text-amber-950 leading-relaxed space-y-2">
+          <p className="font-semibold text-amber-900">
+            “Seu acesso aos benefícios está temporariamente indisponível. Para regularizar sua situação, entre em contato com a instituição de ensino.”
+          </p>
+          <p className="text-xs text-amber-800/90">{detailedExplanation}</p>
+        </div>
+
+        {/* Resumo do Estudante */}
+        <div className="mt-6 bg-slate-50 rounded-2xl p-4 border border-slate-200 text-left text-xs space-y-2">
+          <div className="flex justify-between items-center py-1 border-b border-slate-200/60">
+            <span className="text-slate-500 font-medium">Titular:</span>
+            <span className="font-bold text-slate-800">{student.nome}</span>
+          </div>
+          <div className="flex justify-between items-center py-1 border-b border-slate-200/60">
+            <span className="text-slate-500 font-medium">Matrícula:</span>
+            <span className="font-mono font-bold text-slate-800">{student.matricula}</span>
+          </div>
+          <div className="flex justify-between items-center py-1 border-b border-slate-200/60">
+            <span className="text-slate-500 font-medium">Instituição:</span>
+            <span className="font-semibold text-slate-800">{student.instituicao}</span>
+          </div>
+          <div className="flex justify-between items-center py-1">
+            <span className="text-slate-500 font-medium">Validade cadastrada:</span>
+            <span className="font-bold text-rose-600">
+              {formatDateBR(student.dataValidade)} ({validity.label})
+            </span>
+          </div>
+        </div>
+
+        {/* Contatos da Secretaria Institucional */}
+        <div className="mt-6 text-left bg-blue-50/60 rounded-2xl p-4 border border-blue-100 text-xs text-slate-600 space-y-1.5">
+          <div className="font-bold text-blue-900 flex items-center gap-1.5">
+            <HelpCircle className="w-4 h-4 text-blue-600" />
+            Canais de Atendimento:
+          </div>
+          <div className="flex items-center gap-2 text-slate-700">
+            <Mail className="w-3.5 h-3.5 text-blue-600" />
+            <span>secretaria@universidade.edu.br</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-700">
+            <Phone className="w-3.5 h-3.5 text-blue-600" />
+            <span>(11) 3000-4000 • Atendimento de Segunda a Sexta das 8h às 21h</span>
+          </div>
+        </div>
+
+        {/* Botões de Ação */}
+        <div className="mt-6 flex flex-col sm:flex-row items-center gap-2.5">
+          <button
+            id="btn-blocked-view-card"
+            type="button"
+            onClick={() => setShowCardModal(true)}
+            className="w-full sm:flex-1 py-3 px-4 rounded-xl text-xs font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <CreditCard className="w-4 h-4 text-slate-600" />
+            Ver Meu Cartão
+          </button>
+
+          <button
+            id="btn-blocked-logout"
+            type="button"
+            onClick={onLogout}
+            className="w-full sm:flex-1 py-3 px-4 rounded-xl text-xs font-semibold text-white bg-rose-600 hover:bg-rose-700 shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <LogOut className="w-4 h-4" />
+            Sair da Conta
+          </button>
+        </div>
+      </div>
+
+      {/* Modal para visualizar o Cartão (caso precise comprovar matrícula mesmo com benefícios suspensos) */}
+      {showCardModal && (
+        <div
+          id="blocked-card-modal"
+          className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-4"
+        >
+          <div className="w-full max-w-md bg-slate-900 rounded-3xl p-6 text-white relative">
+            <button
+              onClick={() => setShowCardModal(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            >
+              ✕
+            </button>
+            <h3 className="text-sm font-bold text-slate-300 mb-4 text-center">
+              Cartão Digital para Apresentação
+            </h3>
+            <StudentCard student={student} />
+            <button
+              onClick={() => setShowCardModal(false)}
+              className="mt-4 w-full py-2.5 bg-white/20 hover:bg-white/30 rounded-xl text-xs font-semibold cursor-pointer"
+            >
+              Fechar Visualização
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};

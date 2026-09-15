@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* Compatibilidade Universal entre Navegadores (Chrome, Safari, Firefox, Edge, Samsung Internet, WebViews) */
+:root {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+/* Suporte a barra de rolagem estilizada cross-browser (Firefox e WebKit) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Rolagem com inércia para iOS WebKit / Safari */
+.overflow-y-auto, .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Suporte de fallback para backdrop-filter (Safari e navegadores legados) */
+@supports not (backdrop-filter: blur(1px)) {
+  .backdrop-blur-md {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+  .backdrop-blur-sm, .backdrop-blur-xs {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
+/* Normalização de campos de formulário no Safari iOS */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="url"],
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Normalização de botões no Safari e Firefox */
+button {
+  -webkit-appearance: button;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  header, nav, button, .no-print {
+    display: none !important;
+  }
+
+  #system-manual-modal {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+
+  #system-manual-modal > div {
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
